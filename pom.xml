@@ -5,7 +5,7 @@
 
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.tanhuang2016</groupId>
+    <groupId>io.github.tanhuang2016</groupId>
     <artifactId>jmap</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
