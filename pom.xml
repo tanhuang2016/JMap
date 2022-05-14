@@ -5,7 +5,7 @@
 
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.example</groupId>
+    <groupId>tanhuang2016.com.github</groupId>
     <artifactId>JMap</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
