@@ -16,7 +16,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <projectUrl>https://github.com/tanhuang2016/JMap.git</projectUrl>
-        <serverId>ossrh</serverId>
+        <serverId>hashdog</serverId>
     </properties>
 
     <developers>
