@@ -172,7 +172,7 @@ public class SimpleMapHelper extends AbstractMap{
                 Position xy = convert.XY(lons.get(i), lats.get(i));
                 int x = xy.getX()+offsetX;
                 int y = xy.getY()+offsetY;
-                ImageUtil.DrawString(transparentImg,text.get(i),x,y,font,textStyle.getFontColor(),Text.center_center);
+                ImageUtil.DrawString(transparentImg,text.get(i),x,y,font,textStyle.getFontColor(),Text.CENTER_CENTER);
             }
 
         }
