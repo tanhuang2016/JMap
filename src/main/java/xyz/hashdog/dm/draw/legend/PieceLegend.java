@@ -110,7 +110,7 @@ public abstract class PieceLegend implements Legend {
     /**
      * 因为python的配置顺序问题,有的动态图例需要翻转
      * 如果使用此方法,会导致引用参数跟着变化,最好构造实例的时候,构造参数为副本
-     * @return
+     * @return this
      */
     public Legend reverse(){
         TDataUtil.reverse(levelColor,levelLabel,levelHatches);
@@ -123,7 +123,7 @@ public abstract class PieceLegend implements Legend {
      *
      * @param lenImg 图例
      * @param titleImg 标题
-     * @return
+     * @return 拼接好标题的图片
      */
     protected abstract BufferedImage joinTitle(BufferedImage lenImg,BufferedImage titleImg);
     public void save(String path){

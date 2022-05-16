@@ -10,21 +10,22 @@ import xyz.hashdog.dm.bean.base.Position;
 public interface CoordinateConvert {
 
     /**
-     * 底图宽
-     * @return
+     *
+     * @return 底图宽
      */
     int FloorPicWidth();
 
     /**
-     * 底图高
-     * @return
+     *
+     * @return 底图高
      */
     int FloorPicHieght();
 
     /**
-     * 横坐标,纵坐标
-     * @param lon
-     * @return
+     *
+     * @param lon 经度
+     * @param lat 维度
+     * @return 横坐标,纵坐标
      */
     Position XY(Double lon, Double lat);
 

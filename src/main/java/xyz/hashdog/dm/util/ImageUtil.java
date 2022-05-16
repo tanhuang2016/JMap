@@ -17,7 +17,12 @@ import java.util.List;
 public class ImageUtil {
 
 
-
+    /**
+     *
+     * @param font 字体
+     * @param labels 多个文本
+     * @return 最大宽度
+     */
     public static int labelsMaxWidth(Font font, List<String> labels) {
         int max = 0;
         for (String label : labels) {
@@ -28,17 +33,37 @@ public class ImageUtil {
     }
 
 
+    /**
+     *
+     * @param font 字体
+     * @param text 文本
+     * @return 宽度
+     */
     public static int widthByString(Font font, String text) {
         java.awt.FontMetrics fm = sun.font.FontDesignMetrics.getMetrics(font);
         int w = fm.stringWidth(text);
         return w;
     }
 
+    /**
+     *
+     * @param font 字体
+     * @return 高度
+     */
     public static int highByFont(Font font) {
         java.awt.FontMetrics fm = sun.font.FontDesignMetrics.getMetrics(font);
         return fm.getHeight();
     }
 
+    /**
+     *
+     * @param image 图片
+     * @param text 文本
+     * @param x 横坐标
+     * @param y 纵坐标
+     * @param font 字体
+     * @param fontColor 颜色
+     */
     public static void DrawString(BufferedImage image, String text, int x, int y, Font font, String fontColor) {
         // 获取Graphics2D
         Graphics2D g2d = image.createGraphics();
@@ -56,6 +81,17 @@ public class ImageUtil {
         }
         g2d.dispose();
     }
+
+    /**
+     *
+     * @param image 图片
+     * @param text 文本
+     * @param x 横坐标
+     * @param y 纵坐标
+     * @param font 字体
+     * @param color 颜色
+     * @param alignment 对齐方式
+     */
     public static void DrawString(BufferedImage image, String text, int x, int y,Font font, String color,String alignment) {
         Graphics2D g2d = image.createGraphics();
         g2d.setFont(font);
@@ -107,6 +143,14 @@ public class ImageUtil {
         }
         DrawString(image, text, x, y, font, color);
     }
+
+    /**
+     *
+     * @param bakimage 背景图片
+     * @param operimage 叠加图片
+     * @param x 横坐标
+     * @param y 纵坐标
+     */
     public static void drawImage(BufferedImage bakimage, BufferedImage operimage, int x, int y) {
         Graphics2D g2d = bakimage.createGraphics();
         try {
@@ -115,6 +159,14 @@ public class ImageUtil {
         }
         g2d.dispose();
     }
+
+    /**
+     *
+     * @param bakimage 背景图片
+     * @param operimage 叠加图片
+     * @param x 横坐标
+     * @param y 纵坐标
+     */
     public static void drawCenterImage(BufferedImage bakimage, BufferedImage operimage, int x, int y) {
         Graphics2D g2d = bakimage.createGraphics();
         try {
@@ -124,11 +176,11 @@ public class ImageUtil {
         g2d.dispose();
     }
     /**
-     * 获取透明背景图片
      *
-     * @param width
-     * @param height
-     * @return
+     *
+     * @param width 宽
+     * @param height 高
+     * @return 透明背景图片
      */
     public static BufferedImage getTransparentImg(int width, int height) {
         BufferedImage res = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -139,6 +191,13 @@ public class ImageUtil {
         g.dispose();
         return res;
     }
+
+    /**
+     *
+     * @param subimage 图片
+     * @param savePath 路径
+     * @return 写入是否成功
+     */
     public static boolean write(BufferedImage subimage, String savePath) {
         FileOutputStream pointOut = null;
         try {
@@ -167,7 +226,6 @@ public class ImageUtil {
      *
      * @param bImage BufferedImage对象
      * @return byte[]
-     * @auth zhy
      */
     public static byte[] imageToBytes(BufferedImage bImage) {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -182,10 +240,10 @@ public class ImageUtil {
 
     /**
      * 仿射变换
-     * @param picPath
-     * @param shear
-     * @param scale
-     * @return
+     * @param picPath 图片地址
+     * @param shear  shear
+     * @param scale scale
+     * @return 仿射变换后的图片
      * @throws IOException
      */
     public static BufferedImage affineTransform(String picPath, double shear, double scale) throws IOException {
@@ -207,11 +265,11 @@ public class ImageUtil {
 
     /**
      *
-     * @param width
-     * @param height
+     * @param width width
+     * @param height height
      * @param colors 渐变颜色
-     * @param alpha
-     * @return
+     * @param alpha alpha
+     * @return 背景渐变色的图片
      */
     public static BufferedImage getBackgroundImg(int width, int height,float alpha,String... colors){
         BufferedImage img = getTransparentImg(width, height);
@@ -239,15 +297,23 @@ public class ImageUtil {
 
     /**
      *  将target 画在 src的正中间
-     * @param src
-     * @param target
+     * @param src src
+     * @param target target
      */
     public static void drawCenterImg(BufferedImage src, BufferedImage target) {
         Graphics2D g2d = src.createGraphics();
         g2d.drawImage(target,(src.getWidth()-target.getWidth())/2,(src.getHeight()-target.getHeight())/2,null);
         g2d.dispose();
     }
-    // 填充一个多边形
+
+    /**
+     * 填充多边形
+     * @param image image
+     * @param xPoints xPoints
+     * @param yPoints yPoints
+     * @param FillColor FillColor
+     * @param Alpha Alpha
+     */
     public static void FillPolygon(BufferedImage image, int[] xPoints, int[] yPoints, Color FillColor, float Alpha) {
         // 获取Graphics2D
         Graphics2D g2d = image.createGraphics();
@@ -262,7 +328,16 @@ public class ImageUtil {
         }
         g2d.dispose();
     }
-    // 绘制一个多边形
+
+    /**
+     * 绘制多边形
+     * @param image image
+     * @param xPoints xPoints
+     * @param yPoints yPoints
+     * @param lineColor lineColor
+     * @param lineWidth lineWidth
+     * @param Alpha Alpha
+     */
     public static void DrawPolygon(BufferedImage image, int[] xPoints, int[] yPoints, Color lineColor, float lineWidth,
                                    float Alpha) {
         // 获取Graphics2D
@@ -280,7 +355,12 @@ public class ImageUtil {
         }
         g2d.dispose();
     }
-    public static void applyQualityRenderingHints(Graphics2D g2d) {
+
+    /**
+     *  属性设置
+     * @param g2d g2d
+     */
+    private static void applyQualityRenderingHints(Graphics2D g2d) {
         g2d.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
