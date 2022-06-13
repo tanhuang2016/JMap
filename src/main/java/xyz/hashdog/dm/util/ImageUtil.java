@@ -104,39 +104,39 @@ public class ImageUtil {
         int width = cx;
         int height = cy;
 
-        if (Text.CENTER_CENTER.endsWith(alignment)) // 中心点定位
+        if (Text.CENTER_CENTER.endsWith(alignment)) // 水平居中垂直居中
         {
             x = x - (int)(width / 2.0f);
             y = y - (int)(height / 2.0f);
-        } else if (Text.LEFT_TOP.endsWith(alignment)) // 左上角定位
+        } else if (Text.RIGHT_BOTTOM.endsWith(alignment)) // 水平居右垂直居下
         {
             x = x + (int)((width - cx) / 2.0f);
             y = y + (int)((height - cy) / 2.0f);
-        } else if (Text.CENTER_TOP.endsWith(alignment)) // 上中点定位
+        } else if (Text.CENTER_BOTTOM.endsWith(alignment)) // 水平居中垂直居下
         {
             x = x - (int)(width / 2.0f);
             y = y + (int)((height - cy) / 2.0f);
-        } else if (Text.RIGHT_TOP.endsWith(alignment)) // 右上角定位
+        } else if (Text.LEFT_BOTTOM.endsWith(alignment)) // 水平居左垂直居下
         {
             x = x - (int)((width + cx) / 2.0f);
             y = y + (int)((height - cy) / 2.0f);
-        } else if (Text.LEFT_BOTTOM.endsWith(alignment)) // 左下角定位
+        } else if (Text.RIGHT_TOP.endsWith(alignment)) // 水平居右垂直居上
         {
             x = x + (int)((width - cx) / 2.0f);
             y = y - (int)((height + cy) / 2.0f);
-        } else if (Text.CENTER_BOTTOM.endsWith(alignment)) // 下中点定位
+        } else if (Text.CENTER_TOP.endsWith(alignment)) // 水平居中垂直居上
         {
             x = x - (int)(width / 2.0f);
             y = y - (int)((height + cy) / 2.0f);
-        } else if (Text.RIGHT_BOTTOM.endsWith(alignment)) // 右下角定位
+        } else if (Text.LEFT_TOP.endsWith(alignment)) // 水平居左垂直居上
         {
             x = x - (int)((width + cx) / 2.0f);
             y = y - (int)((height + cy) / 2.0f);
-        } else if (Text.LEFT_CENTER.endsWith(alignment)) // 左中点定位
+        } else if (Text.RIGHT_CENTER.endsWith(alignment)) // 水平居右垂直居中
         {
             x = x + (int)((width - cx) / 2.0f);
             y = y - (int)(height / 2.0f);
-        } else if (Text.RIGHT_CENTER.endsWith(alignment)) // 右中点定位
+        } else if (Text.LEFT_CENTER.endsWith(alignment)) // 水平居左垂直居中
         {
             x = x - (int)((width + cx) / 2.0f);
             y = y - (int)(height / 2.0f);
