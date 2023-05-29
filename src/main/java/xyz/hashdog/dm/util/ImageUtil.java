@@ -4,7 +4,10 @@ package xyz.hashdog.dm.util;
 import xyz.hashdog.dm.bean.Text;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -16,6 +19,34 @@ import java.util.List;
 
 public class ImageUtil {
 
+    /**
+     * 图片弹出显示
+     * @param label 图片
+     * @param width 窗口宽
+     * @param hight 窗口高
+     */
+    public static void show(final BufferedImage label,final int width,final int hight) {
+        new JPanel() {
+            JFrame jf = new JFrame("show image");
+            {
+                jf.setSize(width, hight);
+                jf.add(this);
+                jf.setVisible(true);
+                jf.addWindowListener(new WindowAdapter() {
+                    @Override
+                    public void windowClosing(WindowEvent e) {
+                        super.windowClosing(e);
+                        Runtime.getRuntime().exit(1);
+                    }
+                });
+
+            }
+            @Override
+            public void paint(Graphics g) {
+                g.drawImage(label, (width - label.getWidth()) / 2, (hight - label.getHeight()) / 2, null);  // 显示
+            }
+        };
+    }
 
     /**
      *

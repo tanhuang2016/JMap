@@ -30,6 +30,7 @@ public class SimpleMapHelper extends AbstractMap{
         this.mainPic = mainPic;
     }
 
+    @Override
     public SimpleMapHelper plot() {
         initMapPic();
         drawSubPics();
