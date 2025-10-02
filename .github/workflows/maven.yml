@@ -15,7 +15,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '8'      # 一般只需要修改这里，8 17 21 等等
-          server-id: hashdog
+          server-id: central
           server-username: SERVER_USERNAME
           server-password: SERVER_PASSWORD
           gpg-private-key: ${{ secrets.GPG_SECRET }}
