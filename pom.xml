@@ -105,52 +105,41 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.sonatype.central</groupId>
-                <artifactId>central-publishing-maven-plugin</artifactId>
-                <version>0.9.0</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <publishingServerId>central</publishingServerId>
-                </configuration>
-            </plugin>
-
-            <!-- ！！！重点插件一，gpg 相关插件 -->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-gpg-plugin</artifactId>-->
-<!--                <version>1.6</version>-->
-<!--                <inherited>false</inherited>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>sign-artifacts</id>-->
-<!--                        <phase>verify</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>sign</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <gpgArguments>-->
-<!--                                <arg>&#45;&#45;pinentry-mode</arg>-->
-<!--                                <arg>loopback</arg>-->
-<!--                            </gpgArguments>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-<!--            &lt;!&ndash; ！！！重点插件二，新的发布插件2 &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <groupId>org.sonatype.central</groupId>-->
-<!--                <artifactId>central-publishing-maven-plugin</artifactId>-->
-<!--                <version>0.8.0</version>-->
-<!--                <extensions>true</extensions>-->
-<!--                <configuration>-->
-<!--                    <publishingServerId>central</publishingServerId>-->
-<!--                    <autoPublish>true</autoPublish>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
 
         </plugins>
     </build>
 
-
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <!-- GPG -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.2.5</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.9.0</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <publishingServerId>central</publishingServerId>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
