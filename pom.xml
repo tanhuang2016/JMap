@@ -128,7 +128,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- ！！！重点插件二，新的发布插件 -->
+            <!-- ！！！重点插件二，新的发布插件2 -->
             <plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
