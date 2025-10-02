@@ -114,7 +114,7 @@
             <id>release</id>
             <build>
                 <plugins>
-                    <!-- GPG -->
+                    <!-- GPG2 -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
